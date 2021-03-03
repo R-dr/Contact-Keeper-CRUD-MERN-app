@@ -1,0 +1,25 @@
+// POST users path
+// validation check
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+  "name":"steve",
+  "email":"test@t.com",
+  "password":"Testad"
+}
+
+
+
+
+// Get users path
+// log in user with middle ware
+
+GET http://localhost:5000/api/users
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjAzZjA0M2U1Yzg1OWIzMmEyNzI5MGFlIn0sImlhdCI6MTYxNDc0MzQ2NCwiZXhwIjoxNjE1MTAzNDY0fQ.lgTQVBV86iDghEssr4EB5lduMpeYxtbWBxjYlGA2bXM
+
+{  
+  "email":"test@t.com",
+  "password":"Testad"
+}
