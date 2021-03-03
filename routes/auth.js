@@ -11,6 +11,9 @@ const auth = require('../middleware/auth');
 //model
 const User = require('../models/User');
 
+// error snippet
+const errorCatch = require('../helpers/errorSnippet');
+
 // @route  POST api/auth
 // @desc   Auth user & get token
 // @access Public
@@ -50,8 +53,7 @@ router.post(
         }
       );
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
+      errorCatch(err);
     }
   }
 );
@@ -63,8 +65,7 @@ router.get('/', auth, async (req, res) => {
     const user = await User.findById(req.user.id).select('-password');
     return res.json(user);
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('server error');
+    errorCatch(err);
   }
 });
 

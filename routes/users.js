@@ -8,6 +8,9 @@ require('dotenv').config();
 //model
 const User = require('../models/User');
 
+// error snippet
+const errorCatch = require('../helpers/errorSnippet');
+
 // @route  POST api/users
 // @desc   Get a user
 // @access Public
@@ -60,8 +63,7 @@ router.post(
         }
       );
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
+      errorCatch(err);
     }
   }
 );
