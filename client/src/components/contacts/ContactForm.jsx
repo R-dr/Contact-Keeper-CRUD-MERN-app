@@ -35,6 +35,7 @@ export const ContactForm = () => {
     } else {
       updateContact(contact);
     }
+    clearAll();
     setContact({
       name: '',
       email: '',
