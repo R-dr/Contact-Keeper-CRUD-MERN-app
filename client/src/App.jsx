@@ -18,6 +18,13 @@ import { About } from './components/pages/About';
 import { Register } from './components/auth/Register';
 import { Login } from './components/auth/Login';
 
+// utils
+import { setAuthToken } from './utils/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 function App() {
   return (
     <AuthState>
