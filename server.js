@@ -1,5 +1,7 @@
 const express = require('express');
-const connectDB = require('./config/db');
+// const connectDB = require('./config/db');
+const mongoose = require('mongoose');
+
 require('dotenv').config();
 const path = require('path');
 const app = express();
