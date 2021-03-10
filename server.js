@@ -5,7 +5,16 @@ const path = require('path');
 const app = express();
 
 // Database Connection
-connectDB();
+// connectDB();
+const db = process.env.MONGODB_URI;
+mongoose
+  .connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('MongoDB connected'))
+  .catch(e => console.log(e));
 
 // Init Middleware
 app.use(express.json({ extended: false }));
