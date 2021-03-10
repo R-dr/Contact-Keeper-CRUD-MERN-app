@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import { CSSTransition, TransistionGroup } from 'react-transition-group';
 import { ContactContext } from '../../context/contact/ContactContext';
 export const ContactFilter = () => {
   const contactContext = useContext(ContactContext);

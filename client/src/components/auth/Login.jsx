@@ -22,7 +22,7 @@ export const Login = props => {
     email: '',
     password: '',
   });
-  const { name, email, password } = user;
+  const { email, password } = user;
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
@@ -68,7 +68,7 @@ export const Login = props => {
 
         <input
           type='submit'
-          value='Register'
+          value='Login'
           className='btn btn-primary btn-block'
         />
       </form>
