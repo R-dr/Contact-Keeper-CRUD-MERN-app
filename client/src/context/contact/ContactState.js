@@ -11,7 +11,8 @@ import {
   FILTER_CONTACTS,
   CLEAR_FILTER,
   CONTACT_ERROR,
-  CLEAR_CONTACT,
+  CLEAR_CONTACTS,
+  GET_CONTACTS,
 } from '../types';
 
 const ContactState = props => {
@@ -23,7 +24,21 @@ const ContactState = props => {
   };
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
-
+  // GET  contacts
+  const getContacts = async contact => {
+    try {
+      const res = await axios.get('/api/contacts');
+      dispatch({
+        type: GET_CONTACTS,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: CONTACT_ERROR,
+        payload: err.response.msg,
+      });
+    }
+  };
   //add a contact
   const addContact = async contact => {
     const config = {
@@ -69,6 +84,7 @@ const ContactState = props => {
   const clearFilter = contact => {
     dispatch({ type: CLEAR_FILTER });
   };
+  const clearContacts = () => {};
   return (
     <ContactContext.Provider
       value={{
@@ -83,6 +99,8 @@ const ContactState = props => {
         updateContact,
         filterContacts,
         clearFilter,
+        clearContacts,
+        getContacts,
       }}
     >
       {props.children}
