@@ -41,6 +41,14 @@ export default (state, action) => {
         ),
         loading: false,
       };
+    case CLEAR_CONTACTS:
+      return {
+        ...state,
+        contacts: null,
+        filtered: null,
+        error: null,
+        current: null,
+      };
     case SET_CURRENT:
       return {
         ...state,
@@ -51,7 +59,7 @@ export default (state, action) => {
         ...state,
         current: null,
       };
-    // how to make a regex filter method gi means global insesitive
+    // how to make a regex filter method gi means global insensitive
     case FILTER_CONTACTS:
       return {
         ...state,
